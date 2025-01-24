@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "name": "nintendo",
+    "price": 297.50,
+    "imgUrl": "/imgs/nintendo.jpg"
+  },
+  {
+    "id": 2,
+    "name": "laptop",
+    "price": 1330,
+    "imgUrl": "/imgs/laptop.jpg"
+  },
+  {
+    "id": 3,
+    "name": "vr",
+    "price": 1068.75,
+    "imgUrl": "/imgs/vr.jpg"
+  },
+  {
+    "id": 4,
+    "name": "xbox",
+    "price": 449.00,
+    "imgUrl": "/imgs/xbox.jpg"
+  },
+  {
+    "id": 5,
+    "name": "controller",
+    "price": 52.99,
+    "imgUrl": "/imgs/controller.jpg"
+  }
+  ,
+  {
+    "id": 5,
+    "name": "playstation",
+    "price": 175.99,
+    "imgUrl": "/imgs/playstation.jpg"
+  }
+]
