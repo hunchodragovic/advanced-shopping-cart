@@ -1,9 +1,17 @@
 import React from "react";
 import { Card, Button, Row, Col } from "react-bootstrap";
 import FormatCurrency from "./formatCurrency";
-import "./StoreItem.css"
+import "./StoreItem.css";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 const StoreItem = ({ id, price, name, imgUrl }) => {
-  const quantity = 2; // Example quantity; you can connect this with state
+  const {
+    decreaseCartQuantity,
+
+    getItemsQuantity,
+    increaseCartQuantity,
+    removeItemFromCart,
+  } = useShoppingCart();
+  const quantity = getItemsQuantity(id); // Example quantity; you can connect this with state
 
   return (
     <Card className="h-100">
@@ -19,7 +27,11 @@ const StoreItem = ({ id, price, name, imgUrl }) => {
         </Card.Title>
         <div className="mt-auto">
           {quantity === 0 ? (
-            <Button variant="primary" className="w-100">
+            <Button
+              variant="primary"
+              className="w-100"
+              onClick={() => increaseCartQuantity(id)}
+            >
               Add to Cart
             </Button>
           ) : (
@@ -29,6 +41,7 @@ const StoreItem = ({ id, price, name, imgUrl }) => {
                   <Button
                     variant="outline-secondary"
                     className="rounded-circle btn-custom"
+                    onClick={() => decreaseCartQuantity(id)}
                   >
                     -
                   </Button>
@@ -40,12 +53,17 @@ const StoreItem = ({ id, price, name, imgUrl }) => {
                   <Button
                     variant="outline-secondary"
                     className="rounded-circle btn-custom"
+                    onClick={() => increaseCartQuantity(id)}
                   >
                     +
                   </Button>
                 </Col>
               </Row>
-              <Button variant="danger" className="w-100 mt-2">
+              <Button
+                variant="danger"
+                className="w-100 mt-2"
+                onClick={() => removeItemFromCart(id)}
+              >
                 Remove
               </Button>
             </div>
