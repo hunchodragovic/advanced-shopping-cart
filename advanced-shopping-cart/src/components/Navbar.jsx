@@ -4,8 +4,10 @@ import { NavLink } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 const Navbar = () => {
+  const {openCart,cartQuantity} = useShoppingCart()
   return (
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
@@ -20,7 +22,7 @@ const Navbar = () => {
             About
           </Nav.Link>
         </Nav>
-        <Button variant="outline-primary" className=" rounded-circle" >
+        <Button variant="outline-primary" className=" rounded-circle" onClick={openCart}>
           <FontAwesomeIcon
             style={{
               width: "3rem",
@@ -33,7 +35,7 @@ const Navbar = () => {
             style={{ transform: "translateX(40px) translateY(5px)" }}
             className="rounded-circle bg-danger w-50 text-light"
           >
-            3
+           {cartQuantity}
           </div>
         </Button>
       </Container>
