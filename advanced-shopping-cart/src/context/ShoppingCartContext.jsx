@@ -42,16 +42,17 @@ const ShoppingCartProvider = ({ children }) => {
     );
   };
   return (
-    <ShoppingCartProvider
+    <ShoppingCartContext.Provider
       value={{
         cartItems,
+        decreaseCartQuantity,
         getItemsQuantity,
         increaseCartQuantity,
         removeItemFromCart,
       }}
     >
       {children}
-    </ShoppingCartProvider>
+    </ShoppingCartContext.Provider>
   );
 };
 
